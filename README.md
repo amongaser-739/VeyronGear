@@ -41,8 +41,6 @@ Any network optimization should be evaluated through testing, as its effectivene
 ## Technology Stack
 
 - Python
-- CustomTkinter
-- Windows networking utilities
 
 ## License
 
@@ -51,4 +49,6 @@ The project license has not yet been specified.
 ---
 
 Developers:ooklazz,chatgpt
+
+
 **VeyronGear — Network Optimization and Game Management.**
