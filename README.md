@@ -48,7 +48,7 @@ The project license has not yet been specified.
 
 ---
 
-Developers:ooklazz,chatgpt
+Developers:ooklazz,chatgpt,claude
 
 
 **VeyronGear — Network Optimization and Game Management.**
