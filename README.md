@@ -1,54 +1,58 @@
 # VeyronGear
-
-VeyronGear is a Windows application designed to provide network diagnostics, assist with latency optimization, and simplify game launching through a unified interface.
-
-## Features
-
-### Ping Optimizer
-Tools for analyzing network latency, identifying potential connectivity issues, and applying supported network optimizations where appropriate.
-
-### Games
-A centralized game launcher that provides convenient access to supported games.
-
-### Network Lab
-Network diagnostic utilities for testing connectivity, measuring latency, and investigating potential network performance issues.
-
-### Settings
-Application configuration and management of available optimization options.
-
-## System Requirements
-
-- Windows 10 or Windows 11
-
-## Project Status
-
-VeyronGear is currently under active development. Features, interface components, and supported functionality may change between releases.
-
-## Development Goals
-
-- Improve network diagnostics and latency analysis.
-- Implement safe and configurable optimization methods.
-- Expand the supported game library.
-- Improve application usability and reliability.
-- Provide clear explanations of network configuration changes.
-
-## Disclaimer
-
-VeyronGear cannot guarantee lower latency in every environment. Network performance depends on several factors, including the internet service provider, server location, network routing, congestion, and local network conditions.
-
-Any network optimization should be evaluated through testing, as its effectiveness may vary depending on the user's configuration.
-
-## Technology Stack
-
-- Python
-
-## License
-
-The project license has not yet been specified.
-
----
-
-Developers:ooklazz,chatgpt,claude
-
-
-**VeyronGear — Network Optimization and Game Management.**
+# Veyron Gear Hub
+**Veyron Gear Hub 2.1** — единый лаунчер для всех ваших игр. Steam, Epic Games, Xbox и любые игры из ваших папок — в одном окне с обложками, поиском и статистикой.
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows-lightgrey)
+![License](https://img.shields.io/badge/License-MIT-green)
+## ✨ Возможности
+- **Автосканер** — автоматически находит игры из Steam, Epic Games и Xbox
+- **Ручное добавление** — отдельные `.exe` / `.lnk` или целые папки с играми
+- **Обложки** — автоматическая загрузка постеров из Steam CDN, поддержка своих картинок
+- **Поиск и фильтры** — «Все игры», «Избранные», «Часто играю»
+- **Статистика** — количество запусков, общее время игры, дата последнего запуска
+- **Избранное** — пометка любимых игр звёздочкой
+- **Запуск игр** — поддержка Steam-протокола, Epic Launcher, прямой запуск `.exe`
+- **Фиолетовая тема** — тёмный интерфейс на Tkinter
+- **Обратная связь** — кнопка «💬 ОБРАТНАЯ СВЯЗЬ» открывает Telegram-бота поддержки
+## 📋 Требования
+- **Python 3.10+**
+- **Windows** (используются `os.startfile`, реестр, `winreg`)
+- **Tkinter** (обычно идёт в комплекте с Python)
+- **Pillow** *(необязательно)* — для обложек: `pip install pillow`
+## 🚀 Установка и запуск
+```bash
+# 1. Установите Pillow (для обложек)
+pip install pillow
+# 2. Запустите программу
+python veyron_gear_hub.pyw
+```
+При первом запуске автоматически создаётся папка данных:
+```
+%APPDATA%\VeyronGearHub\
+├── library.json      # ваша библиотека игр
+├── cover_index.json  # индекс обложек
+└── covers\           # загруженные обложки
+```
+## 🎮 Как пользоваться
+1. Нажмите **«ОБНОВИТЬ»** — программа просканирует Steam, Epic и Xbox и добавит найденные игры.
+2. Кнопка **«＋ ИГРА»** — добавить отдельный `.exe` или ярлык.
+3. Кнопка **«＋ ПАПКА»** — добавить целую папку с играми (выбрать нужные файлы из списка).
+4. Двойной клик / Enter — запуск выбранной игры.
+5. Правый клик — контекстное меню: запуск, открыть папку, избранное, сменить обложку, удалить.
+6. **«ОБЛОЖКИ»** — принудительно перезагрузить все обложки.
+7. **«💬 ОБРАТНАЯ СВЯЗЬ»** — открыть Telegram-бот поддержки [@veyronsupport_bot](https://t.me/veyronsupport_bot).
+## 🗂 Структура проекта
+```
+veyron_gear_hub.pyw   # основной файл приложения (Tkinter)
+```
+Все данные хранятся в `%APPDATA%\VeyronGearHub\` и не удаляются при обновлении программы.
+## 🛠 Технические детали
+- **GUI:** Tkinter + ttk (тема `clam`)
+- **Обложки:** загрузка с `cdn.cloudflare.steamstatic.com` / `steamcdn-a.akamaihd.net`, ресайз через Pillow, скруглённые маски
+- **Поиск игр Steam:** чтение `libraryfolders.vdf` + манифестов `appmanifest_*.acf`
+- **Epic:** `LauncherInstalled.dat`
+- **Xbox:** сканирование `XboxGames` папок
+- **Потоки:** сканирование и загрузка обложек выполняются в фоновых потоках, UI не блокируется
+## 💬 Обратная связь
+Нашли баг или есть предложение? Напишите в Telegram-бот: [t.me/veyronsupport_bot](https://t.me/veyronsupport_bot)
+## 📄 Лицензия
