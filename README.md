@@ -1,4 +1,4 @@
-# VeyronGear
+
 # Veyron Gear Hub
 **Veyron Gear Hub** — единый лаунчер для всех ваших игр. Steam, Epic Games, Xbox и любые игры из ваших папок — в одном окне с обложками, поиском и статистикой.
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
